@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,77 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapVC" customModule="pixel_city" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" zoomEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8RB-Mc-eg9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2OV-G4-16y">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-tap to drop a pin and searching photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DID-1F-mzB">
+                                        <rect key="frame" x="8" y="29.5" width="359" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="1Ya-r6-2GG"/>
+                                            <constraint firstAttribute="width" constant="359" id="tGm-k6-1of"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.65098039215686276" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="DID-1F-mzB" firstAttribute="centerX" secondItem="2OV-G4-16y" secondAttribute="centerX" id="1HQ-yD-hXV"/>
+                                    <constraint firstAttribute="height" constant="80" id="hLm-bi-TN1"/>
+                                    <constraint firstItem="DID-1F-mzB" firstAttribute="centerY" secondItem="2OV-G4-16y" secondAttribute="centerY" id="ubo-vt-wSt"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ux2-K7-WKs">
+                                <rect key="frame" x="309" y="597" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Z8O-0g-UWh"/>
+                                    <constraint firstAttribute="height" constant="50" id="ohY-FT-DJ8"/>
+                                </constraints>
+                                <state key="normal" image="locationButton"/>
+                                <connections>
+                                    <action selector="centerCurrLocBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MFl-Ti-VSa"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jfu-8y-mEm">
+                                <rect key="frame" x="0.0" y="667" width="375" height="0.0"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2OV-G4-16y" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7uN-QZ-NoF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ux2-K7-WKs" secondAttribute="trailing" constant="16" id="GtR-IF-CRA"/>
+                            <constraint firstAttribute="trailing" secondItem="Jfu-8y-mEm" secondAttribute="trailing" id="HBr-5X-Na6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ux2-K7-WKs" secondAttribute="bottom" constant="20" id="IVM-7G-vdh"/>
+                            <constraint firstItem="2OV-G4-16y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="SPf-PE-isl"/>
+                            <constraint firstItem="8RB-Mc-eg9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ugm-EN-gBm"/>
+                            <constraint firstItem="Jfu-8y-mEm" firstAttribute="top" secondItem="8RB-Mc-eg9" secondAttribute="bottom" id="VLm-wH-2Xf"/>
+                            <constraint firstItem="Jfu-8y-mEm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VV3-xE-2Fa"/>
+                            <constraint firstItem="8RB-Mc-eg9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Wrh-5p-Gpb"/>
+                            <constraint firstItem="Jfu-8y-mEm" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="YAW-wh-o6H"/>
+                            <constraint firstItem="8RB-Mc-eg9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ckC-q3-s98"/>
+                            <constraint firstItem="2OV-G4-16y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ijY-Co-ZdG"/>
+                            <constraint firstAttribute="bottom" secondItem="8RB-Mc-eg9" secondAttribute="bottom" id="ukA-C3-jQh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="8RB-Mc-eg9" id="998-Bh-pYD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="130.40000000000001" y="94.902548725637189"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="locationButton" width="67" height="67"/>
+    </resources>
 </document>
